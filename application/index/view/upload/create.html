@@ -1,0 +1,61 @@
+<link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/JavaScript" src="./static/bootstrap/js/jquery-3.2.1.min.js"></script>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index">文章组合工具</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="index">上传文章</a></li>
+                <li class="active"><a href="create">生成文章</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<form class="form-horizontal" role="form" action="handle_create_new" method="post">
+    <a href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" id="AddMoreFileBox"
+       class="btn btn-info">添加多组关键词</a></span></p>
+
+    <div id="InputsWrapper">
+        <div><input type="text" name="keyword[]" id="field_1" placeholder="a&b&c"/><a href="#" rel="external nofollow"
+                                                                                rel="external nofollow"
+                                                                                rel="external nofollow"
+                                                                                class="removeclass"><input type='button'
+                                                                                                           value='删除'></a>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">开始生成</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        var MaxInputs = 8; //maximum input boxes allowed
+        var InputsWrapper = $("#InputsWrapper"); //Input boxes wrapper ID
+        var AddButton = $("#AddMoreFileBox"); //Add button ID
+        var x = InputsWrapper.length; //initlal text box count
+        var FieldCount = 1; //to keep track of text box added
+        $(AddButton).click(function (e) //on add input button click
+        {
+            if (x <= MaxInputs) //max input box allowed
+            {
+                FieldCount++; //text box added increment
+                //add input box
+                $(InputsWrapper).append('<div><input type="text" name="keyword[]" id="field_' + FieldCount + '" placeholder="a&b&c"/><a href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" class="removeclass"><input type="button" value="删除"></a></div>');
+                x++; //text box increment
+            }
+            return false;
+        });
+        $("body").on("click", ".removeclass", function (e) { //user click on remove text
+            if (x > 1) {
+                $(this).parent('div').remove(); //remove text box
+                x--; //decrement textbox
+            }
+            return false;
+        })
+    });
+</script>

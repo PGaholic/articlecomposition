@@ -1,0 +1,36 @@
+<link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/JavaScript" src="./static/bootstrap/js/jquery-3.2.1.min.js"></script>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index">文章组合工具</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="index">上传文章</a></li>
+                <li><a href="create">生成文章</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="alert alert-success">上传成功,去重之后,总计插入{$count}条数据</div>
+
+{if condition="$list == 0 "}
+<!--<div class="alert alert-info">全部入库成功</div>-->
+{else /}
+<div class="alert alert-danger">以下文章因为重复,未入库成功:</div>
+<ul class="list-group">
+    {volist name="list" id="vo"}
+    <li class="list-group-item">{$vo}</li>
+    {/volist}
+</ul>
+{/if}
+
+<!--<script>-->
+<!--$(function () {-->
+<!--$("li").click(function(){-->
+<!--$(this).addClass("active").siblings("li").removeClass("active");-->
+<!--})-->
+<!--})-->
+<!--</script>-->

@@ -1,0 +1,42 @@
+<link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/JavaScript" src="./static/bootstrap/js/jquery-3.2.1.min.js"></script>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index">文章组合工具</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="index">上传文章</a></li>
+                <li class="active"><a href="create">生成文章</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<form class="form-horizontal" role="form" action="handle_create" method="post">
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">关键词:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="keyword" required="required" placeholder="关键词用&号隔开,例如:a&b&c">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">生成数量:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="number"  required="required" onKeyUp="value=value.replace(/[^\d]/g,'')" placeholder="输入数字,例如:5">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">开始生成</button>
+        </div>
+    </div>
+</form>
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$("li").click(function(){-->
+            <!--$(this).addClass("active").siblings("li").removeClass("active");-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
