@@ -7,7 +7,7 @@ use think\Request;
 
 class Upload extends \think\Controller
 {
-    //上传11
+    //上传
     public function index()
     {
         return $this->fetch();
