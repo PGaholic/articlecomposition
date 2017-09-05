@@ -427,4 +427,12 @@ class Upload extends \think\Controller
         $a = array_flip($content_array);
         return array_shift($a);
     }
+
+    public function a($a){
+        if($a >11){
+            return $a;
+        }else{
+            return null;
+        }
+    }
 }
